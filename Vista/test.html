@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <script src="js/logindropdown.js"></script>
+    <!--<script src="js/funciones.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/miestilo.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <!--captcha-->
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+</head>
+<body>
+<div id="wrap">  <!--Agregado-->
+    <!--Header, navbar superior-->
+  <header >
+      <nav class="navbar navbar-default .navbar-fixed-top" role="navigation" height="50">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="form-group">
+            <img src="img/top_icon.png" width="35" height="40" href="index.html">
+            <a class="navbar-brand" href="index.html">CEL4u®</a>
+          </div>
+        </div>
+      
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+             otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Productos<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Móviles</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Accesorios</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Soporte <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="faq.php">Preguntas frecuentes</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Servicio y reparación</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Contacto</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                ¿Quienes somos?<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="mision.php">Misión</a></li>
+                <li class="divider"></li>
+                <li><a href="vision.php">Visión</a></li>
+                <li class="divider"></li>
+                <li><a href="valores.php">Valores</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!--<form class="navbar-form navbar-left" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="Buscar"></div><button type="submit" class="btn btn-default">Enviar</button></form>-->
+          <ul class="nav navbar-nav navbar-right">
+              <li>  
+                <nav>
+                <ul>
+                  <li id="login">
+                    <a id="login-trigger" href="#">
+                      Log in <span>▼</span>
+                    </a>
+                    <div id="login-content">
+                    <form>
+                      <div class="row">
+                      <div class="col-md-1">    
+                      </div>
+                      <div class="col-md-4">
+                      <div class="row">   
+                        <div id="inputs" class="form-group row">
+                        <input id="us" type="email" class="login" width="30" name="Email" placeholder="Su email" required>   
+                        <input id="pw" type="password" class="login" name="Password" placeholder="Contraseña" required>
+                      </div>
+                      <div class="row">
+                      <input type="submit" id="submit" value="Entrar">
+                        </div>
+                        </div>
+                      </div>
+                      </div>
+                    
+                    </form>
+                </div>                     
+              </li>
+              <li id="signup">
+                <a href="">Registrarse</a>
+              </li>
+            </ul>
+          </nav>
+
+
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
+<!--final del header-->
+<!--centro-->
+<div class="row">
+
+      <div class="container text-text">
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+        <h2>
+          <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand" href="#">
+                Contacto
+              </div>
+            </div>
+          </div>
+        </nav>
+        </h2>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar" href="#">
+               Nos encontramos ubicados en Alonso de Zurita #101 Col. Fovisste. Celaya, Gto. México.
+               <br>
+               <br>
+               Para más información también puedes seguirnos consultar la información en nuestras redes sociales.
+               <br>
+               <br>
+
+               <div class="col-md-4">
+               <ul list-style-type:none>
+                
+
+               <li><a href="https://www.facebook.com"><img src="img/fbsp.png" title="Facebook"></a></li>
+             <li><a href="https://www.pinterest.com"><img src="img/pssp.png"  title="Pinterest"></a></li>
+               <li><a href="https://www.linkedin.com"><img src="img/insp.png"  title="LinkedIn"></a></li>
+               <li><a href="https://www.youtube.com"><img src="img/ytsp.png"  title="YouTube"></a></li>
+               <li><a href="https://twitter.com/"><img src="img/twsp.png"  title="Twitter"></a></li>
+               <li><a href="https://instagram.com"><img src="img/itsp.png"  title="Instagram"></a></li>
+               <li><a href="https://www.reddit.com"><img src="img/rtsp.png"  title="Reddit"></a></li>
+
+               </ul>
+               </div>
+               <div class="col-md-4">
+               <img src="img/cl3d.png" max-width:100%; max-height:100%; > 
+               </div>
+
+               <div class="col-md-4">
+                
+               </div>
+              
+              </div>
+            </div>
+          </div>
+        </nav>
+          <div class="row">
+<!--INICIO DEL CAROUSEL-->
+
+        <div class="row">
+             <div class="col-sm-4 col-md-3 text-center">
+                  <a href="#" class="thumbnail">
+                        <i class="fa fa-pencil-square-o fa-5x"></i>
+                        <div class="caption">
+                        <img src="img/guide.png" alt="CiTablets">
+                        </div>
+                        CiTablets
+                  </a>
+              </div>
+
+                <div class="col-sm-4 col-md-3 text-center">
+                  <a href="#" class="thumbnail">
+                      <i class="fa fa-file-text-o fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide1.png" alt="Servicios">
+                      </div>
+                      Servicios
+                  </a>
+              </div>
+                          
+            
+            
+              <div class="col-sm-4 col-md-3  text-center">
+                   <a href="#" class="thumbnail">
+                       <i class="fa fa-pencil fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide2.png" alt="">  
+                      </div>
+                      Herramientas técnicas
+                   </a>
+               </div>
+
+               <div class="col-sm-4 col-md-3  text-center">
+                   <a href="#" class="thumbnail">
+                      <i class="fa fa-university fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide3.png">
+                      </div>
+                    Dispositivos en la nube
+                  </a>
+              </div>
+       </div>
+       <div class="row">
+            <div class="col-sm-4 col-md-3  text-center">
+                <a href="faq.html" class="thumbnail">
+                      <i class="fa fa-envelope fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide4.png">
+                      </div>
+                      Preguntas frecuentes
+                </a>
+            </div>
+
+              <div class="col-sm-4 col-md-3  text-center">
+                <a href="#" class="thumbnail">
+                      <i class="fa fa-envelope fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide6.png">
+                      </div>
+                      Dispositivos con office
+                </a>
+            </div>
+
+              <div class="col-sm-4 col-md-3  text-center">
+                <a href="#" class="thumbnail">
+                      <i class="fa fa-file-word-o fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide7.png">
+                      </div>
+                      CEL4u Windows Phone
+                </a>
+            </div>
+
+              <div class="col-sm-4 col-md-3  text-center">
+                <a href="#" class="thumbnail">
+                      <i class="fa fa-envelope fa-5x"></i>
+                      <div class="caption">
+                      <img src="img/guide8.png">
+                      </div>
+                      Más marcas
+                </a>
+            </div>
+
+ </div>
+</div>
+<!--FIN DEL CAROUSEL--> 
+          
+          <div class="row">
+            <div class="col-md-3">
+              
+            </div>
+            <div class="col-md-6">
+            <!--COLOCAR LOS ESTILOS-->
+            <br>
+            <center>
+              <a href="index.html" type="button" class="btn btn-primary">Página principal</a>
+            </center>
+          </div>
+            <div class="col-md-3">
+              
+            </div>
+          </div>
+<br>
+<br>
+<div class="row">
+
+  <div class="col-md-3">
+    
+  </div>
+  
+  <div class="col-md-6">
+    <center>
+    <h3>Envienos sus comentarios</h3>
+    </center> 
+  </div>
+  
+  <div class="col-md-3">
+    
+  </div>
+
+</div>
+<br>
+<br>
+<!--Inicio caja de comentarios al diseñador-->
+      <div>
+        
+        <form class="form-horizontal">
+
+      
+      
+      <div class="form-group">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <label for="h_mailcte" class="control-label">eMail:</label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+          <input 
+              class="form-control text-center"
+              type="email" name="h_mailcte" id="h_mailcte"
+              placeholder="ejemplo@example.dom" 
+              required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <label for="h_mailcte" class="control-label">Sus comentarios:</label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Comentarios" rows="5" id="comment"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group text-right">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <input 
+            class="btn btn-primary"
+          type="submit" value="Enviar">
+        </div>
+      </div>
+
+      </div>
+    </form> 
+
+      </div>
+<!--Fin cada de comentarios al diseñador-->
+
+
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <br>
+    <br>
+    <br>
+  </div>
+  
+  <div id="push"></div>
+</div>
+</div>
+<!--fin centro-->
+    
+<!--inicio footer-->
+  <div class="row">
+    <footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <row class="muted credit">
+        <div class="container row-fluid">
+          <div class="col-md-12">
+            <div class="col-md-3">
+            <center>
+            <!--Texto que irá en lado izquierdo del footer-->
+            Nos reservamos todos los derechos
+            </div>
+
+            <div class="col-md-6 center">
+            <!--Texto que irá en medio del footer-->
+              <center>
+              <b>Alonso de Zurita #101 Col. Fovisste. Celaya, Gto. México.
+              </center>
+              <center>
+              <i> 
+                    Página exclusiva para clientes de México.
+              </i>
+              </center>
+              </b>
+            </div>
+            
+            <div class="col-md-3">
+              <center>
+            <!--Texto que irá lado derecho del footer-->
+              Contacto lmaobb@ventaslmano.com   
+              </center>
+              <center>
+                LOL Bebé, lol.
+              </center>
+              <center>
+                
+              </center> 
+            </div>
+            </div>
+          </div>
+            </div>
+      </row>
+    </footer>
+<!--fin footer--> 
+
+  </div>  
+
+</body>
+</html>
+
+
+
+
+
+    <div class"row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <h2><strong>Samsung S5<strong></h2><h5>Estás a tiempo de adquirir el tuyo</h5>
+              <a href="producto.php?idProd=10"><img src="img/ixb1.png" alt="..."></a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <h2><strong>Iphone 5s<strong></h2><h5>Estás a tiempo de adquirir el tuyo</h5>
+              <a href="producto.php?idProd=56"><img src="img/ixb2.png" alt="..."></a>
+          </div>
+        </div>
+        <div class"row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <h2><strong>Lumia 640 LTE<strong></h2><h5>Todo el poder de Microsoft</h5>
+                <a href="producto.php?idProd=2"><img src="img/ixb3.png" alt="..."></a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <h2><strong>LG LEON H320<strong></h2><h5>Siempre con la mejor inovación</h5>
+                <a href="producto.php?idProd=46"><img src="img/ixb4.png" alt="..."></a>
+            </div>
+        </div>

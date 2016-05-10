@@ -1,0 +1,277 @@
+	html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+    #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      footer {
+        background-color: #f5f5f5;
+        margin-top: 40px
+      }
+    @media (max-width: 767px) {
+        footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+
+      .carousel-inner > .item > img {
+         min-width: 100%;
+         min-height: 300px; /* <--- Change this line to min-height */
+       }
+      /*.carousel-inner .item { min-height: 400px; max-height: 400px } */
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      #wrap > .container {
+        padding-top: 60px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+      .prod {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: right;
+  border-bottom: 1px solid #fff;
+  border-radius: 3px;    
+}
+
+nav li {
+  float: left;          
+}
+
+nav #login {
+  border-right: 1px solid #ddd;
+  box-shadow: 1px 0 0 #fff;  
+}
+
+nav #login-trigger,
+nav #signup a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff; 
+}
+
+nav #signup a {
+  border-radius: 0 3px 3px 0;
+}
+
+nav #login-trigger {
+  border-radius: 3px 0 0 3px;
+}
+
+nav #login-trigger:hover,
+nav #login .active,
+nav #signup a:hover {
+  background: #fff;
+}
+
+nav #login-content {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 0;
+  z-index: 999;    
+  background: #fff;
+  background-image: linear-gradient(top, #fff, #eee);  
+  padding: 15px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+  border-radius: 3px 0 3px 3px;
+}
+
+nav li #login-content {
+  right: 0;
+  width: 250px;  
+}
+
+/*--------------------*/
+
+#inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 238px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+
+
+.cuerpo
+{
+  background-color: #00466F;
+}
+
+.contenedor 
+{
+  background-color: #FFFFFF;
+  padding: 3%  3%  3%  3%;
+  border-style: solid;
+  border-color:  #2e6da4;
+  border-radius: 10% 10% 10% 10%;
+
+}
+
+.containerRegistro 
+{
+  background-color: #FFFFFF;
+  padding: 3%  3%  3%  3%;
+  border-style: solid;
+  border-color:  #2e6da4;
+  border-radius: 10% 0% 10% 0%;
+
+}
+
+
+h2{
+
+  font-family: 'Abel', sans-serif;;
+  font-style: normal;
+  color: white;
+
+}
+
+h1{
+
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  color: white;
+
+}
+
+no
+{
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+}
+
+h5{
+
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+}
+
+.opcion
+{
+  font-family: 'Abel', sans-serif;
+  background-color: #FFFFFF;
+  border-style: solid;
+  color: #00AAFF;
+  border-color:  #00AAFF;
+  -webkit-border-radius: 5px 5px;  /* Safari  */
+  -moz-border-radius: 5px 5px; 
+}
+
+.marca
+{
+  font-family: 'Abel', sans-serif;
+  background-color: #FFFFFF;
+  border-style: solid;
+  color: #00AAFF;
+  border-color:  #00AAFF;
+  -webkit-border-radius: 5px 5px;  /* Safari  */
+  -moz-border-radius: 5px 5px; 
+}
+
+.holaaa
+{
+max-width:100%;
+max-height:100%; 
+margin:auto; 
+display:block;
+}
+
+.respuestas
+{
+
+  font-family: 'Abel', sans-serif;
+  background-color: #003C55;
+  color: white;
+  border-style: double;
+  border-color:  #005959;
+  -webkit-border-radius: 5px 10px;  /* Safari  */
+  -moz-border-radius: 5px 10px; 
+}
+
+.necesito_pad
+{
+  padding: 3% 3% 3% 3% ;
+  max-width: 100%;
+}
+
+.titulo
+{
+  font-family: 'Abel', sans-serif;
+  color:#00AAFF;
+  background-color: #FFFFFF;
+  -webkit-border-radius: 5px 10px;  /* Safari  */
+  -moz-border-radius: 5px 10px; 
+}
+.logi{
+  color:#000000;
+}
+.redir
+{
+  max-width: 30%;
+  max-height:30%;
+}
+
+.pad_estructura
+{
+  padding: 3% 10% 3% 10% ;
+  max-width: 100%;
+}
+.textBody{
+  color: #FFFFFF;
+}
+.textBody2{
+  color: #FFFFFF;
+  background-color: #005959;
+}

@@ -1,0 +1,175 @@
+create table marca(
+	idmarc int not null primary key auto_increment,
+	nombre varchar(30) not null);
+
+create table productos(
+	idprod int not null primary key auto_increment,
+	nombre varchar(30) not null,
+	precio numeric(7,2),
+	descrip varchar(150),
+	img varchar(25),
+	stock int,
+	idmarc int,
+	CONSTRAINT Prodfk1 foreign key (idmarc) references marca (idmarc));
+
+create table productos(
+  idprod int not null primary key auto_increment,
+  nombre varchar(30) not null,
+  precio numeric(7,2),
+  descrip varchar(150),
+  img varchar(25),
+  stock int,
+  idmarc int,
+
+  CREATE TABLE clientes (
+  idcte int(11) NOT NULL AUTO_INCREMENT,
+  nomcte varchar(30) DEFAULT NULL,
+  apepat varchar(30) DEFAULT NULL,
+  apemat varchar(30) DEFAULT NULL,
+  dircte varchar(100) DEFAULT NULL,
+  telcte char(10) DEFAULT NULL,
+  mailcte varchar(30) DEFAULT NULL,
+  gencte char(1) DEFAULT NULL,
+  edacte char(3) DEFAULT NULL,
+  pwdcte varchar(38),
+  PRIMARY KEY (idcte),
+  UNIQUE KEY mailcte (mailcte)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+DELIMITER ;;
+
+CREATE PROCEDURE abcclientes(in idcte int, in nomcte varchar(30),in apepat varchar(30), in apemat varchar(30),
+in dircte varchar(100),in telcte char(10),in mailcte varchar(30),in gencte char(1),in edacte char(3),in opc int,in pwdcte varchar(38))
+BEGIN IF opc=1 THEN INSERT INTO clientes (nomcte,apepat,apemat,dircte,telcte,mailcte,gencte,edacte,pwdcte) VALUES (nomcte,apepat,apemat,dircte,telcte,mailcte,gencte,edacte,pwdcte); ELSEIF opc=2 THEN UPDATE clientes set nomcte=nomcte,apepat=apepat, apemat=apemat,dircte=dircte,telcte=telcte,mailcte=mailcte,gencte=gencte,edacte=edacte,pwdcte=pwdcte WHERE idcte=idcte; ELSEIF opc=3 THEN DELETE FROM clientes where idcte=idcte; END IF; END ;;
+DELIMITER ;
+
+CREATE TABLE venta(
+  idvte int(11) NOT NULL AUTO_INCREMENT,
+  idprod int,
+  idcte int(11),
+  total numeric(7,2),
+  cantidad varchar(150),
+  CONSTRAINT ventk1 PRIMARY KEY(idvte),
+  CONSTRAINT ventfk1 foreign key (idprod) references productos (idprod),
+  CONSTRAINT ventfk2 foreign key (idcte) references clientes (idcte))ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+
+CREATE PROCEDURE pcven(in idprod1 int, in idcte1 int,in cant int,in total1 int)
+BEGIN insert into venta (idprod,idcte,total,cantidad) values (idprod1,idcte1,total1,cant); update productos set stock=stock-cant where idprod=idprod1;
+END;
+
+call venta(1,1,1,3600.00);;
+
+
+insert into marca (nombre) values('Nokia'),('Samsung'),('Alcatel'),('Motorola'),('Lenovo'),('LG'),('Apple');
+
+insert into productos(nombre,precio,stock,descrip,idmarc,img)
+values ('Lumia 640 XL',3600.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk1.png"),
+('Lumia 640 LTE',4600.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk2.png"),
+('Lumia 530',4000.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk3.png"),
+('Lumia 435',3500.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk4.png"),
+('Lumia 630',3700.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk5.png"),
+('Lumia 1020',4600.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk6.png"),
+('Lumia 830 XL',5600.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk7.png"),
+('Lumia 625',3999.00,10,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',1,"img/prods/nk8.png");
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('Samsung S6',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm1.png',2),
+('Samsung S5',6800.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm2.png',2),
+('Core 2',8000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm3.png',2),
+('Ace 3',8900.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm4.png',2),
+('Ace 4',8700.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm5.png',2),
+('Gran Neo',3000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm6.png',2),
+('Galaxy E7',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm7.png',2),
+('Note 2',5800.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm8.png',2),
+('Galaxy A5',5400.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm9.png',2),
+('Galaxy A3',3200.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm10.png',2);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('Grand Prime',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm11.png',2),
+('Note 4',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/sm12.png',2);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('Idol 2 mini',8000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc1.png',3),
+('Idol 2',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc2.png',3),
+('Idol mini',6000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc3.png',3),
+('One Touch Scribe Easy',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc4.png',3),
+('POP C3',8200.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc5.png',3),
+('POP C5',6300.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc6.png',3),
+('POP C7',5999.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc7.png',3),
+('IDOL X+',5000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc8.png',3),
+('IDOL X9',3899.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/alc9.png',3);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('Moto X 2da',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto1.png',4),
+('Moto X 1ra',6000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto2.png',4),
+('Moto G 1ra',3000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto3.png',4),
+('Moto G LTE',4200.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto4.png',4),
+('Moto E 1ra',2000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto5.png',4),
+('Moto X 1ra',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto6.png',4),
+('Moto G 2da',4800.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto7.png',4),
+('Moto XT1032',2400.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto8.png',4),
+('Moto Droid',9000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/moto9.png',4);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('Lenovo A396',1300.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len1.png',5),
+('Lenovo S960',2800.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len2.png',5),
+('Lenovo S90',3100.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len3.png',5),
+('Lenovo X2-Cu',13600.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len4.png',5),
+('Lenovo K900',9000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len5.png',5),
+('Lenovo S820',6000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len6.png',5),
+('Lenovo S820',4000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/len7.png',5);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('LG Leon H320',1200.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg1.png',6),
+('LG G Flex 2',12000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg2.png',6),
+('LG Spirit H420',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg3.png',6),
+('LG Joy H221',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg4.png',6),
+('LG G3 Stylus',8000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg5.png',6),
+('LG G3 BEAT',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg6.png',6),
+('LG L70',5000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg7.png',6),
+('LG L80',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/lg8.png',6);
+
+insert into productos(nombre,precio,descrip,stock,img,idmarc)
+values('iPhone 6 Plus',12000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip1.png',7),
+('iPhone 6',11000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip2.png',7),
+('iPhone 5s',10000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip3.png',7),
+('iPhone 5c',9000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip4.png',7),
+('iPhone 4S',8000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip5.png',7),
+('iPhone 4',7000.00,'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de paginas',10,'img/prods/ip6.png',7),
+<!--div class="col-sm-4 col-md-3 text-center">
+              <a href="#" class="thumbnail">
+                    <i class="fa fa-pencil-square-o fa-5x"></i>
+                    <div class="caption">
+                    <img src="img/m1.jpg" alt="...">
+                    </div>
+                    Galaxy Grand Prime
+              </a>
+          </div>
+          <div class="col-sm-4 col-md-3 text-center">
+            <a href="#" class="thumbnail">
+                <i class="fa fa-file-text-o fa-5x"></i>
+                <div class="caption">
+                <img src="img/m2.jpg" alt="...">
+                </div>
+                Galaxy Note 4
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3 text-center">
+            <a href="#" class="thumbnail">
+                <i class="fa fa-file-text-o fa-5x"></i>
+                <div class="caption">
+                <img src="img/m2.jpg" alt="...">
+                </div>
+                Galaxy Note 4
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3 text-center">
+            <a href="#" class="thumbnail">
+                <i class="fa fa-file-text-o fa-5x"></i>
+                <div class="caption">
+                <img src="img/m2.jpg" alt="...">
+                </div>
+                Galaxy Note 4
+            </a>
+          </div-->
